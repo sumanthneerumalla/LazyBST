@@ -16,40 +16,7 @@ using namespace std;
 class LazyBST {
 public:
 
-    LazyBST();
-
-    LazyBST(const LazyBST &other);
-
-    /**
-   * Destructor for the tree
-   */
-    ~LazyBST();
-
-    const operator=(const LazyBST &rhs);
-
-    void insert(int key);
-
-    void insert(int key, bst *root);
-
-    bool remove(int key);
-
-    bool find(int key);
-
-    void inorder();
-
-    bool locate(const char *position, int &key);
-
-
-/**
- * Make the tree logically empty.
- */
-    void makeEmpty();
-
-    /**
-   * Internal method to make subtree empty.
-   */
-    void makeEmpty(bst *t);
-
+    //internal node struct used for this class
     struct bst {
         int data;
         int height;
@@ -73,6 +40,42 @@ public:
 
     } *root = NULL;
 
+    LazyBST();
+
+    LazyBST(const LazyBST &other);
+
+    /**
+   * Destructor for the tree
+   */
+    ~LazyBST();
+
+    const operator=(const LazyBST &rhs);
+
+
+    bool remove(int key);
+
+    bool find(int key);
+
+    void inorder();
+
+    void inorder(bst *root);
+
+    bool locate(const char *position, int &key);
+
+
+/**
+ * Make the tree logically empty.
+ */
+    void makeEmpty();
+
+    void insert(int key);
+
+    void insert(int key, bst *root);
+
+    /**
+* Internal method to make subtree empty.
+*/
+    void makeEmpty(bst *t);
 
     int getHeight(bst *node);
 

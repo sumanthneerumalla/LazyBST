@@ -71,3 +71,25 @@ void LazyBST::makeEmpty(LazyBST::bst *t) {
     }
     //otherwise t is already NULL and it means the subtree is empty
 }
+
+LazyBST::~LazyBST() {
+    makeEmpty();
+}
+
+void LazyBST::inorder() {
+    if(root!=NULL)
+    {
+       inorder(root);
+
+    }
+}
+
+void LazyBST::inorder(LazyBST::bst *root) {
+    if(root!=NULL)
+    {
+        inorder(root->left);
+        cout<<root->data;
+        inorder(root->right);
+
+    }
+}

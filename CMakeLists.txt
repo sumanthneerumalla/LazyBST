@@ -3,5 +3,5 @@ project(proj3)
 
 set(CMAKE_CXX_STANDARD 98)
 
-set(SOURCE_FILES main.cpp LazyBST.cpp LazyBST.h)
+set(SOURCE_FILES test1.cpp LazyBST.cpp LazyBST.h)
 add_executable(proj3 ${SOURCE_FILES})
