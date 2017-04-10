@@ -25,19 +25,6 @@ public:
         bst *left;
         bst *right;
 
-
-        bst() {
-            left = NULL;
-            right = NULL;
-            data = -1;
-        }
-
-        bst(int someData) {
-            left = NULL;
-            right = NULL;
-            data = someData;
-        }
-
     } *root = NULL;
 
     LazyBST();

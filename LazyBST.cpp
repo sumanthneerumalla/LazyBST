@@ -24,7 +24,6 @@ void LazyBST::insert(int key) {
 
     insert(key, root);
 
-
 }
 
 LazyBST::LazyBST() {
@@ -40,9 +39,18 @@ root = NULL;
  * Set the new root of the subtree.
  */
 void LazyBST::insert(int key, LazyBST::bst *root) {
+
     if (root == NULL){
+        cout << "root is null, creating new tree"<<endl;
+
         //if the root is null, make a new node and set it to root
-        root = new bst(key);
+        root = new bst;
+        //assign data
+        root->left = NULL;
+        root->right = NULL;
+        root->data = key;
+
+        cout << "confirming that node has "<< root->data<< endl;
     }
 
     else if (key < root->data){
@@ -79,9 +87,11 @@ LazyBST::~LazyBST() {
 void LazyBST::inorder() {
     if(root!=NULL)
     {
+        cout<< "parent node is: "<< root->data;
        inorder(root);
 
     }
+    cout<<"root is null"<<endl;
 }
 
 void LazyBST::inorder(LazyBST::bst *root) {
