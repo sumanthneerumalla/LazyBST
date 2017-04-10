@@ -27,7 +27,7 @@ public:
 
     };
 
-    struct bst* root;
+    struct bst *root;
 
     LazyBST();
 
@@ -50,6 +50,8 @@ public:
     void inorder(bst *root);
 
     bool locate(const char *position, int &key);
+
+    bool contains(int someKey, bst *t);
 
 
 /**

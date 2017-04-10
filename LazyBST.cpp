@@ -103,3 +103,28 @@ void LazyBST::inorder(LazyBST::bst *root) {
 
     }
 }
+
+bool LazyBST::find(int key) {
+    return contains(key, root);
+}
+
+
+/**
+ * Internal method to test if an item is in a subtree.
+ * x is item to search for.
+ * t is the node that roots the subtree.
+ */
+bool LazyBST::contains(int someKey, LazyBST::bst *t) {
+    if (t == NULL) {
+        return false;
+    }
+    else if (someKey < t->data) {
+        return contains(someKey, t->left);
+    }
+    else if (someKey > t->data) {
+        return contains(someKey, t->right);
+    }
+    else {
+        return true;
+    }
+}
