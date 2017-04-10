@@ -41,7 +41,7 @@ LazyBST::LazyBST() {
 void LazyBST::insert(int key, LazyBST::bst *&node) {
 
     if (node == NULL) {
-        cout << "root is null, creating new tree" << endl;
+//        cout << "root is null, creating new tree" << endl;
 
         //if the root is null, make a new node and set it to root
         node = new bst;
@@ -49,8 +49,10 @@ void LazyBST::insert(int key, LazyBST::bst *&node) {
         node->left = NULL;
         node->right = NULL;
         node->data = key;
+        node->size = 0;
+        node->height = 0;
 
-        cout << "confirming that node has " << node->data << endl;
+//        cout << "confirming that node has " << node->data << endl;
     } else if (key < node->data) {
         insert(key, node->left);
     } else if (key > node->data) {
@@ -82,20 +84,22 @@ LazyBST::~LazyBST() {
 
 void LazyBST::inorder() {
     if (root != NULL) {
-        cout << "parent node is: " << root->data << endl;
+//        cout << "parent node is: " << root->data << endl;
         inorder(root);
 
     } else {
-        cout << "root is null, you lost the tree. fix the leak" << endl;
+//        cout << "root is null, you lost the tree. fix the leak" << endl;
     }
 
 }
 
 void LazyBST::inorder(LazyBST::bst *root) {
     if (root != NULL) {
+        cout << "(";
         inorder(root->left);
-        cout << "encountered " << root->data << endl;
+        cout << root->data << ":" << root->height << ":" << root->size;
         inorder(root->right);
+        cout << ")";
 
     }
 }
