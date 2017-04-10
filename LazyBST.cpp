@@ -54,3 +54,20 @@ void LazyBST::insert(int key, LazyBST::bst *root) {
     }
 
 }
+
+void LazyBST::makeEmpty() {
+    makeEmpty(root);
+}
+
+
+/**
+ * Internal method to make subtree empty.
+ */
+void LazyBST::makeEmpty(LazyBST::bst *t) {
+    if (t != NULL) {
+        makeEmpty(t->left);
+        makeEmpty(t->right);
+        delete t;
+    }
+    //otherwise t is already NULL and it means the subtree is empty
+}

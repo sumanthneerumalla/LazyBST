@@ -4,10 +4,12 @@
 
 #ifndef PROJ3_LAZYBST_H
 #define PROJ3_LAZYBST_H
+
 #include <stdlib.h>
 
 
 using namespace std;
+
 #include <iostream>
 
 
@@ -18,6 +20,9 @@ public:
 
     LazyBST(const LazyBST &other);
 
+    /**
+   * Destructor for the tree
+   */
     ~LazyBST();
 
     const operator=(const LazyBST &rhs);
@@ -33,6 +38,17 @@ public:
     void inorder();
 
     bool locate(const char *position, int &key);
+
+
+/**
+ * Make the tree logically empty.
+ */
+    void makeEmpty();
+
+    /**
+   * Internal method to make subtree empty.
+   */
+    void makeEmpty(bst *t);
 
     struct bst {
         int data;
@@ -61,7 +77,6 @@ public:
     int getHeight(bst *node);
 
 };
-
 
 
 #endif //PROJ3_LAZYBST_H
