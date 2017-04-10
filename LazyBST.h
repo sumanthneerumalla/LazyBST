@@ -25,7 +25,9 @@ public:
         bst *left;
         bst *right;
 
-    } *root = NULL;
+    };
+
+    struct bst* root;
 
     LazyBST();
 
@@ -57,7 +59,7 @@ public:
 
     void insert(int key);
 
-    void insert(int key, bst *root);
+    void insert(int key, bst *&root);
 
     /**
 * Internal method to make subtree empty.
