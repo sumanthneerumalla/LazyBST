@@ -38,8 +38,9 @@ public:
    */
     ~LazyBST();
 
-    const operator=(const LazyBST &rhs);
+    const LazyBST &operator=(const LazyBST &rhs);
 
+    bst* copyTree(bst* someBst);
 
     bool remove(int key);
 
@@ -52,6 +53,18 @@ public:
     bool locate(const char *position, int &key);
 
     bool contains(int someKey, bst *t);
+
+    bool deleteNode(bst *&subTree, int someKey);
+
+    bst *FindMin(bst *someNode);
+
+    void reBalance();
+
+    bst* reBalance(bst* someNode);
+
+    int* treeToArray(bst* someNode);
+
+    void updateNodes(bst* someNode);
 
 
 /**
@@ -68,8 +81,16 @@ public:
 */
     void makeEmpty(bst *t);
 
-    int getHeight(bst *node);
+    int updateHeights(bst *node);
 
+    int updateSizes(bst *node);
+
+    struct bst* createNode(int someKey);
+
+private:
+
+    bool treeChanged;
+    bool nodeDeleted;
 };
 
 
